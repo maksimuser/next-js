@@ -11,9 +11,11 @@ const Error: FC = () => {
 
   useEffect(() => {
     setPath('/');
-    setTimeout(() => {
+    const timeId = setTimeout(() => {
       router.push(path);
     }, 2000);
+
+    return () => clearTimeout(timeId);
   }, [router, path]);
 
   return (
